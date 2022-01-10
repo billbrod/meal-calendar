@@ -9,20 +9,14 @@
         {"name": "width", "update": "step * 52 + offset * 11"},
         {"name": "height", "update": "step * 5"},
         {
-            "name": "scheme", "value": "category10",
+            "name": "data", "value": "type",
             "bind": {
                 "input": "select",
                 "options": [
-                    "category10",
-                    "blueorange",
-                    "brownbluegreen",
-                    "purplegreen",
-                    "purpleorange",
-                    "redblue",
-                    "redgrey",
-                    "redyellowblue",
-                    "redyellowgreen",
-                    "spectral"
+                    "type",
+                    "main dish cuisine",
+                    "protein",
+                    "vegetarian"
                 ]
             }
         }
@@ -48,6 +42,14 @@
                     "type": "timeunit", "field": "date",
                     "units": ["day"],
                     "as": ["d0", "d1"]
+                },
+                {
+                    "type": "formula", "as": "protein",
+                    "expr": "datum.protein ? datum.protein : 'none'"
+                },
+                {
+                    "type": "formula", "expr": "if(datum.vegan == 'yes', 'vegan', if(datum.vegetarian == 'yes', 'vegetarian', if(datum.pescatarian == 'yes', 'pescatarian', 'meat')))",
+                    "as": "vegetarian"
                 }
             ]
         }
@@ -63,8 +65,8 @@
         {
             "name": "color",
             "type": "ordinal",
-            "range": {"scheme": {"signal": "scheme"}},
-            "domain": {"data": "dinner", "field": "type"}
+            "range": {"scheme": "category10"},
+            "domain": {"data": "dinner", "field": {"signal": "data"}}
         }
     ],
 
@@ -173,12 +175,12 @@
                             "y": {"scale": "y", "field": "d0"},
                             "height": {"scale": "y", "band": 1, "offset": -1},
                             "cornerRadius": {"value": 2},
-                            "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Dish': datum['main dish'], 'Source': datum['main dish source detail']}"},
+                            "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Main dish': datum['main dish'], 'Main dish source': datum['main dish source detail'] + ' (' + datum['main dish source'] + ')', 'Side dish': datum['side dish 1'], 'Side dish source': datum['side dish 1 source detail'] + ' (' + datum['side dish 1 source'] + ')', 'Non-vegan ingredients': datum['non-vegan ingredient']}"},
                             "cursor": {"signal": "datum['main dish source link'] ? 'pointer' : 'default'"},
                             "href": {"field": "main dish source link", "type": "nominal"}
                         },
                         "update": {
-                            "fill": {"scale": "color", "field": "type"}
+                            "fill": {"scale": "color", "field": {"signal": "data"}}
                         }
                     }
                 }
