@@ -35,13 +35,6 @@
             "format": {"type": "csv", "parse": {"date": "date"}},
             "transform": [
                 {
-                    "type": "window",
-                    "sort": {"field": "date", "order": "ascending"},
-                    "ops": ["lag"],
-                    "fields": ["close"],
-                    "as": ["prev"]
-                },
-                {
                     "type": "formula",
                     "expr": "year(datum.date)",
                     "as": "year"
@@ -51,7 +44,6 @@
                     "units": ["year", "week"],
                     "as": ["w0", "w1"]
                 },
-                {"type": "formula", "expr": "timeOffset('day', datum.w0)", "as": "w0"},
                 {
                     "type": "timeunit", "field": "date",
                     "units": ["day"],
@@ -127,7 +119,6 @@
                         {"type": "sequence", "start": 0, "stop": 53, "as": "weeknum"},
                         {"type": "formula", "expr": "datetime(parent.year, 0, 1 + datum.weeknum * 7)", "as": "date"},
                         {"type": "timeunit", "units": ["year", "week"], "field": "date", "as": ["w0", "w1"]},
-                        {"type": "formula", "expr": "timeOffset('day', datum.w0)", "as": "w0"},
                         {"type": "filter", "expr": "datum.date < data('max')[0].max_date"}
                     ]
                 }
