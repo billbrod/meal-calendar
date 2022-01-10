@@ -110,7 +110,8 @@
                     "name": "max",
                     "source": "values",
                     "transform": [
-                        {"type": "aggregate", "ops": ["max"], "fields": ["date"]}
+                        {"type": "aggregate", "ops": ["max"], "fields": ["date"], "as": ["max"]},
+                        {"type": "formula", "expr": "timeOffset('week', datum.max)", "as": "max"}
                     ]
                 },
                 {
@@ -119,7 +120,7 @@
                         {"type": "sequence", "start": 0, "stop": 53, "as": "weeknum"},
                         {"type": "formula", "expr": "datetime(parent.year, 0, 1 + datum.weeknum * 7)", "as": "date"},
                         {"type": "timeunit", "units": ["year", "week"], "field": "date", "as": ["w0", "w1"]},
-                        {"type": "filter", "expr": "datum.date < data('max')[0].max_date"}
+                        {"type": "filter", "expr": "datum.date < data('max')[0].max"}
                     ]
                 }
             ],
