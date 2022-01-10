@@ -175,7 +175,7 @@
                             "y": {"scale": "y", "field": "d0"},
                             "height": {"scale": "y", "band": 1, "offset": -1},
                             "cornerRadius": {"value": 2},
-                            "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Main dish': datum['main dish'], 'Main dish source': datum['main dish source detail'] + ' (' + datum['main dish source'] + ')', 'Side dish': datum['side dish 1'], 'Side dish source': datum['side dish 1 source detail'] + ' (' + datum['side dish 1 source'] + ')', 'Non-vegan ingredients': datum['non-vegan ingredient']}"},
+                            "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Main dish': datum['main dish'], 'Main dish source': datum['main dish source detail'] + ' (' + datum['main dish source'] + ')', 'Side dish': datum['side dish 1'], 'Side dish source': datum['side dish 1 source detail'] + (datum['side dish 1 source'] ? ' (' : '') + datum['side dish 1 source'] + (datum['side dish 1 source'] ? ')' : ''), 'Non-vegan ingredients': datum['non-vegan ingredient']}"},
                             "cursor": {"signal": "datum['main dish source link'] ? 'pointer' : 'default'"},
                             "href": {"field": "main dish source link", "type": "nominal"}
                         },
