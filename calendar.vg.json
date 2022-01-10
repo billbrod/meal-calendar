@@ -32,7 +32,7 @@
         {
             "name": "dinner",
             "url": "data/dinner.csv",
-            "format": {"type": "csv", "parse": {"date": "date"}},
+            "format": {"type": "csv", "parse": {"date": "date:'%Y-%m-%d'"}},
             "transform": [
                 {
                     "type": "formula",
