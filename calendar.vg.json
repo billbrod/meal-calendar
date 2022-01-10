@@ -172,7 +172,7 @@
                             "y": {"scale": "y", "field": "d0"},
                             "height": {"scale": "y", "band": 1, "offset": -1},
                             "cornerRadius": {"value": 2},
-                            "tooltip": {"signal": "{'title': datum.type, 'Dish': datum['main dish'], 'Source': datum['main dish source detail']}"},
+                            "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Dish': datum['main dish'], 'Source': datum['main dish source detail']}"},
                             "cursor": {"signal": "datum['main dish source link'] ? 'pointer' : 'default'"},
                             "href": {"field": "main dish source link", "type": "nominal"}
                         },
