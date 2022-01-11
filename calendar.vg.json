@@ -10,15 +10,7 @@
         {"name": "height", "update": "step * 5"},
         {
             "name": "data", "value": "type",
-            "bind": {
-                "input": "select",
-                "options": [
-                    "type",
-                    "main dish cuisine",
-                    "protein",
-                    "vegetarian"
-                ]
-            }
+            "bind": {"element": "#data_select"}
         }
     ],
 
@@ -73,7 +65,7 @@
     "legends": [
         {
             "fill": "color",
-            "title": "Meal type",
+            "title": "",
             "titleFontSize": 12,
             "titleOrient": "left",
             "titlePadding": 20,
