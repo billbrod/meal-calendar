@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+    <!-- these three tags should prevent the browser from caching the website, from https://stackoverflow.com/a/16717034 (because we update data pretty frequently) -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
@@ -13,12 +17,10 @@
         <option value="main dish cuisine">Main dish cuisine</option>
         <option value="protein">Protein</option>
         <option value="vegetarian">Vegetarian?</option>
+        <option value="alcohol">Alcohol?</option>
     </select>
     <div id="vis"></div>
     <script>
-     var tooltipOptions = {
-         formatTooltip: (value, sanitize) => `My custom tooltip and ${sanitize(value)}.`
-     };
      const spec = "calendar.vg.json";
      vegaEmbed("#vis", spec, {loader : {'target': '_blank'}})
      // result.view provides access to the Vega View API
