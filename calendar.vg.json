@@ -40,6 +40,10 @@
                     "expr": "datum.protein ? datum.protein : 'none'"
                 },
                 {
+                    "type": "formula", "as": "alcohol",
+                    "expr": "datum.alcohol ? datum.alcohol : 'none'"
+                },
+                {
                     "type": "formula", "expr": "if(datum.vegan == 'yes', 'vegan', if(datum.vegetarian == 'yes', 'vegetarian', if(datum.pescatarian == 'yes', 'pescatarian', 'meat')))",
                     "as": "vegetarian"
                 }
