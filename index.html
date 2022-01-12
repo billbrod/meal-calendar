@@ -22,6 +22,11 @@
     <div id="vis"></div>
     <script>
      const spec = "calendar.vg.json";
+     // register some custom color schemes
+     vega.scheme('alcohol', ["#bcbcbc", "#eccd13", "#920000"])
+     vega.scheme('vegetarian', ["#2ca02c", "#98df8a","#377eb8", "#e41a1c"])
+     vega.scheme('protein', ["#bcbcbc", "#d9bd8e", "#f99361", "#784631", "#f4ca21", "#e41a1c"])
+     vega.scheme('type', ["#992226", "#539dba", "#c97424", "#9da706", "#dec31a"])
      vegaEmbed("#vis", spec, {loader : {'target': '_blank'}})
      // result.view provides access to the Vega View API
          .then(result => console.log(result)) ;

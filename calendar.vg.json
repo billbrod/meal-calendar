@@ -15,11 +15,11 @@
         {
             "name": "palettes",
             "value": {
-                "vegetarian": "set1",
-                "type": "category10",
-                "main dish cuisine": "category10",
-                "protein": "category10",
-                "alcohol": "category10"
+                "vegetarian": "vegetarian",
+                "type": "type",
+                "main dish cuisine": "tableau10",
+                "protein": "protein",
+                "alcohol": "alcohol"
             }
         },
         {
@@ -28,7 +28,8 @@
             "value": {
                 "vegetarian": ["vegan", "vegetarian", "pescatarian", "meat"],
                 "alcohol": ["none", "white wine", "red wine"],
-                "type": ["cooked", "leftovers"]
+                "type": ["cooked", "leftovers"],
+                "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat"]
             }
         }
     ],
