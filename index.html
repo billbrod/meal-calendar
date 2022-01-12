@@ -10,16 +10,27 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
 </body>
 
+<style>
+ #select_container {
+     /* set this so that this always ends up above the #vis element */
+     display: block;
+     margin-bottom: 10px;
+ }
+</style>
+
 <head>
+    <p>What have Billy's dinners been like?</p>
+    <div id='select_container'>
     <label for="data_select">Data: </label>
     <select name="data_select" id="data_select">
         <option value="type">Did I cook?</option>
         <option value="main dish cuisine">Main dish cuisine</option>
         <option value="protein">What was meal's main protein?</option>
         <option value="vegetarian">Was meal vegetarian?</option>
-        <option value="alcohol">Alcohol?</option>
-        <option value="main dish source">Recipe source</option>
+        <option value="alcohol">Alcohol with meal?</option>
+        <option value="main dish source">Recipe source(s)</option>
     </select>
+    </div>
     <div id="vis"></div>
     <script>
      const spec = "calendar.vg.json";
