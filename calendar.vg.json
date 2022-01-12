@@ -71,9 +71,7 @@
             "titlePadding": 20,
             "offset": 15,
             "orient": "top",
-            "direction": "horizontal",
-            "gradientLength": 250,
-            "gradientThickness": 10
+            "direction": "horizontal"
         }
     ],
 
