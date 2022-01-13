@@ -36,7 +36,7 @@
             "value": {
                 "vegetarian": ["vegan", "vegetarian", "pescatarian", "meat"],
                 "alcohol": ["none", "white wine", "red wine"],
-                "type": ["cooked", "leftovers"],
+                "type": ["cooked", "leftovers", "frozen"],
                 "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat"],
                 "main dish cuisine": ["Indian", "Chinese", "Korean", "Filipino", "Italian", "Cuban", "Ethiopian", "Sudanese", "Iranian", "Israeli", "American", "global pantry"]
             }
