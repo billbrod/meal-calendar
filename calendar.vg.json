@@ -16,6 +16,7 @@
             "name": "side_data",
             "value": {
                 "main dish source": "side dish 1 source",
+                "main dish type": "side dish 1 type",
                 "main dish cuisine": "side dish 1 cuisine"
             }
         },
@@ -27,7 +28,8 @@
                 "main dish cuisine": "cuisines",
                 "protein": "protein",
                 "alcohol": "alcohol",
-                "main dish source": "set2"
+                "main dish source": "set2",
+                "main dish type": "set1"
             }
         },
         {
@@ -36,9 +38,9 @@
             "value": {
                 "vegetarian": ["vegan", "vegetarian", "pescatarian", "meat"],
                 "alcohol": ["none", "white wine", "red wine"],
-                "type": ["cooked", "leftovers", "frozen"],
+                "type": ["cooked", "frozen", "leftovers"],
                 "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat"],
-                "main dish cuisine": ["Indian", "Chinese", "Korean", "Filipino", "Italian", "Cuban", "Ethiopian", "Sudanese", "Iranian", "Israeli", "American", "global pantry"]
+                "main dish cuisine": ["Indian", "Chinese", "Korean", "Japanese", "Filipino", "Italian", "Cuban", "Ethiopian", "Sudanese", "Iranian", "Israeli", "American", "global pantry"]
             }
         }
     ],
@@ -71,6 +73,14 @@
                 {
                     "type": "formula", "as": "alcohol",
                     "expr": "datum.alcohol ? datum.alcohol : 'none'"
+                },
+                {
+                    "type": "formula", "as": "main dish source",
+                    "expr": "datum['main dish source'] ? datum['main dish source'] : 'none'"
+                },
+                {
+                    "type": "formula", "as": "main dish type",
+                    "expr": "datum['main dish type'] ? datum['main dish type'] : 'misc'"
                 },
                 {
                     "type": "formula", "expr": "if(datum.vegan == 'yes', 'vegan', if(datum.vegetarian == 'yes', 'vegetarian', if(datum.pescatarian == 'yes', 'pescatarian', 'meat')))",
@@ -206,7 +216,7 @@
                                  "y": {"scale": "y", "field": "d0"},
                                  "height": {"scale": "y", "band": 1, "offset": -1},
                                  "cornerRadius": {"value": 2},
-                                 "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Main dish': datum['main dish'], 'Main dish source': datum['main dish source detail'] + ' (' + datum['main dish source'] + ')', 'Side dish': datum['side dish 1'], 'Side dish source': datum['side dish 1 source detail'] + (datum['side dish 1 source'] ? ' (' : '') + datum['side dish 1 source'] + (datum['side dish 1 source'] ? ')' : ''), 'Non-vegan ingredients': datum['non-vegan ingredient']}"},
+                                 "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Main dish': datum['main dish'], 'Main dish source': datum['main dish source detail'] + (datum['main dish source'] ? ' (' : '') + datum['main dish source'] + (datum['main dish source'] ? ')' : ''), 'Side dish': datum['side dish 1'], 'Side dish source': datum['side dish 1 source detail'] + (datum['side dish 1 source'] ? ' (' : '') + datum['side dish 1 source'] + (datum['side dish 1 source'] ? ')' : ''), 'Non-vegan ingredients': datum['non-vegan ingredient']}"},
                                  "cursor": {"signal": "datum['main dish source link'] ? 'pointer' : 'default'"},
                                  "href": {"field": "main dish source link", "type": "nominal"},
                                  "stroke": {"value": "#ffffff"}
@@ -226,7 +236,7 @@
                                  "y": {"scale": "y", "field": "d0"},
                                  "height": {"scale": "y", "band": 1, "offset": -1},
                                  "cornerRadius": {"value": 2},
-                                 "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Main dish': datum['main dish'], 'Main dish source': datum['main dish source detail'] + ' (' + datum['main dish source'] + ')', 'Side dish': datum['side dish 1'], 'Side dish source': datum['side dish 1 source detail'] + (datum['side dish 1 source'] ? ' (' : '') + datum['side dish 1 source'] + (datum['side dish 1 source'] ? ')' : ''), 'Non-vegan ingredients': datum['non-vegan ingredient']}"},
+                                 "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Main dish': datum['main dish'], 'Main dish source': datum['main dish source detail'] + (datum['main dish source'] ? ' (' : '') + datum['main dish source'] + (datum['main dish source'] ? ')' : ''), 'Side dish': datum['side dish 1'], 'Side dish source': datum['side dish 1 source detail'] + (datum['side dish 1 source'] ? ' (' : '') + datum['side dish 1 source'] + (datum['side dish 1 source'] ? ')' : ''), 'Non-vegan ingredients': datum['non-vegan ingredient']}"},
                                  "cursor": {"signal": "datum['side dish 1 source link'] ? 'pointer' : 'default'"},
                                  "href": {"field": "side dish 1 source link", "type": "nominal"},
                                  "stroke": {"value": "#ffffff"}
