@@ -40,7 +40,7 @@
                 "alcohol": ["none", "white wine", "red wine"],
                 "type": ["cooked", "frozen", "leftovers"],
                 "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat"],
-                "main dish cuisine": ["Indian", "Chinese", "Korean", "Japanese", "Filipino", "Italian", "Cuban", "Ethiopian", "Sudanese", "Iranian", "Israeli", "American", "global pantry"]
+                "main dish cuisine": ["Indian", "Chinese", "Korean", "Japanese", "Filipino", "Italian", "Irish", "Cuban", "Ethiopian", "Sudanese", "Iranian", "Israeli", "American", "global pantry"]
             }
         }
     ],
