@@ -29,7 +29,7 @@
                 "protein": "protein",
                 "alcohol": "alcohol",
                 "main dish source": "set2",
-                "main dish type": "set1"
+                "main dish type": "dish_type"
             }
         },
         {
@@ -40,7 +40,8 @@
                 "alcohol": ["none", "white wine", "red wine"],
                 "type": ["cooked", "frozen", "leftovers"],
                 "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat"],
-                "main dish cuisine": ["Indian", "Chinese", "Korean", "Japanese", "Filipino", "Italian", "Irish", "Swiss", "Cuban", "Ethiopian", "Sudanese", "Iranian", "Israeli", "American", "global pantry"]
+                "main dish cuisine": ["Indian", "Chinese", "Korean", "Japanese", "Filipino", "Italian", "Irish", "Swiss", "Cuban", "Ethiopian", "Sudanese", "Iranian", "Israeli", "American", "global pantry"],
+                "main dish type": ["tofu", "legumes", "eggs", "meat", "vegetable", "salad", "stew", "pasta/noodles", "dumpling"]
             }
         }
     ],
