@@ -8,6 +8,7 @@
         {"name": "offset", "value": 10},
         {"name": "width", "update": "step * 52 + offset * 11"},
         {"name": "height", "update": "step * 5"},
+        {"name": "autosize", "value": {"resize": "true", "type": "pad"}},
         {
             "name": "data", "value": "type",
             "bind": {"element": "#data_select"}
@@ -122,6 +123,7 @@
             "titlePadding": 20,
             "offset": 15,
             "orient": "top",
+            "columns": {"signal": "data == 'main dish cuisine' ? 5 : 0"},
             "direction": "horizontal"
         }
     ],
