@@ -42,22 +42,24 @@
      vega.scheme('type', ["#992226", "#539dba", "#c97424", "#9da706", "#dec31a"])
      vega.scheme('dish_type', ["#d9bd8e", "#f99361", "#f4ca21", "#e41a1c", "#2ca02c",
                                "#98df8a", "#8da0cb", "#b43a06", "#5d3997"])
-     // in order these are: blues, reds, oranges, greens, purples, grays. based
-     // off category20c, but then extended. corresponds to continents, roughly
-
      // look into, for colors:
      // http://vrl.cs.brown.edu/color
      // https://paletton.com/#uid=c5a2Z593F0kRlxYaFw0g0qFqFg0w0aF
      // https://medialab.github.io/iwanthue/
      // https://gka.github.io/palettes/#/9|d|00429d,96ffea,d9d9d9|ffffe0,ff005e,93003a|1|1
      // https://github.com/d3/d3-3.x-api-reference/blob/master/Ordinal-Scales.md#categorical-colors
-     vega.scheme('cuisines', ["#08519c", "#3182bd", "#6baed6", "#bdd7e7", "#eff3ff",
-                              "#843c39", "#ad494a",  "#d6616b", // "#e7969c"
-                              "#e6550d", // "#fd8d3c", "#fdae6b", "#fdd0a2",
-                              "#31a354", "#74c476", // "#a1d99b", "#c7e9c0",
-                              "#756bb1", "#9e9ac8", // "#bcbddc", "#dadaeb",
-                              "#636363", "#969696", // "#bdbdbd", "#d9d9d9",
-                              ])
+     vega.scheme('cuisines', [
+         // reds
+         "#c1181b", "#e13128", "#f6573f", "#fb7f60", "#fca589",
+         // blues
+         "#1b69ad", "#3887c0", "#5ba3cf", "", "", // "#86bcdc", "#afd1e7",
+         // greens
+         "#1a833e", "#39a055",  "#60ba6c",  "", "", // "#8ccf8a", "#b2e0ac",
+         // purples
+         "#64649e", "#796db2", "", "", "", // "#928ec3", "#aeadd3", "#c9cae3",
+         // warmgreys
+         "#6e6462", "#827a77", // "#98908c", "#aea5a2", "#c5bcb8",
+     ])
      vegaEmbed("#vis", spec, {loader : {'target': '_blank'}})
      // result.view provides access to the Vega View API
          .then(result => console.log(result)) ;
