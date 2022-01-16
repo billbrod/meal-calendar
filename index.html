@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
-</body>
+</head>
 
 <style>
  #select_container {
@@ -17,24 +17,46 @@
      display: block;
      margin-bottom: 10px;
  }
+ #help {
+     display: none;
+ }
 </style>
 
-<head>
-    <p>What have Billy's dinners been like?</p>
+<body onload="toggleHelp()">
+    <h2>What have Billy's dinners been like?</h2>
+    <ul id='help' name='help'>
+        <li>The following visualization shows my meals since Jan 1, 2022.</li>
+        <li>Each square is a dinner, colored to show information.</li>
+        <li>To change the visualized info, change the Data dropdown.</li>
+        <li>You can hover over a square to get more information about a meal and click on it to get the recipe, if available.</li>
+        <li>For some of the data selections, the squares will split in half; in that case, the left half represents the side dish and the right the main dish (clicking on the left and right half will send you to the recipes for side and main, respectively).</li>
+        <li>For how to use this yourself or to give feedback, see the <a href=https://github.com/billbrod/meal-calendar/>Github</a>.</li>
+    </ul>
     <div id='select_container'>
-    <label for="data_select">Data: </label>
-    <select name="data_select" id="data_select">
-        <option value="type">Did I cook?</option>
-        <option value="protein">What was meal's main protein?</option>
-        <option value="vegetarian">Was meal vegetarian / vegan?</option>
-        <option value="alcohol">Alcohol with meal?</option>
-        <option value="main dish source">Recipe source(s)</option>
-        <option value="main dish cuisine">Dish cuisine(s)</option>
-        <option value="main dish type">Dish type(s)</option>
-    </select>
+        <label for="data_select">Data: </label>
+        <select name="data_select" id="data_select">
+            <option value="type">Did I cook?</option>
+            <option value="protein">What was meal's main protein?</option>
+            <option value="vegetarian">Was meal vegetarian / vegan?</option>
+            <option value="alcohol">Alcohol with meal?</option>
+            <option value="main dish source">Recipe source(s)</option>
+            <option value="main dish cuisine">Dish cuisine(s)</option>
+            <option value="main dish type">Dish type(s)</option>
+        </select>
+        <input type='checkbox' id='help_check' name='help_check' onclick="toggleHelp()">
+        <label for='help_check'>Help</label>
     </div>
     <div id="vis"></div>
     <script>
+     function toggleHelp() {
+         let inputVal = document.getElementById("help_check").checked;
+         let help = document.getElementById("help")
+         if (inputVal) {
+             help.style.display = 'block';
+         } else {
+             help.style.display = 'none';
+         }
+     }
      const spec = "calendar.vg.json";
      // register some custom color schemes
      vega.scheme('alcohol', ["#bcbcbc", "#eccd13", "#920000"])
