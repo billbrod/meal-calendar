@@ -115,9 +115,10 @@ command from my home directory, one directory above the `meal-calendar` repo.
 
 You can manually update the data on your server, but I keep my data in a private
 github repo and figured there was a fancier way to keep them synchronized:
-webhooks. My data lives in a `meals` directory on my server (hardlinking
-`data/dinner.csv` in this folder to the one in `meals`), then I followed [this
+webhooks. My data lives in a `meals` directory on my server, then I followed
+[this
 guide](https://maximorlov.com/automated-deployments-from-github-with-webhook/),
-with the following `hooks.json`, using a small bash script containing `git pull`
-for the `"execute-command"` (I needed to use a script, putting `"git pull"`
-there didn't work).
+with the following `hooks.json`, using a small bash script that contains `git
+pull; cp dinner.csv ../meal-calendar/data/dinner.csv` for the
+`"execute-command"`. Hardlinks don't work with git pull and symlinks don't work
+with however vega grabs the data, so copying is necesary.
