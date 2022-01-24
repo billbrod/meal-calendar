@@ -45,7 +45,7 @@
                                       "Italian", "Irish", "Swiss", "", " ", " \t",
                                       "American", "global pantry", "Cuban", "  ", "   ", "  \t",
                                       "Ethiopian", "Sudanese", "\t", "\t ", "\t  ", "   \t",
-                                      "Iranian", "Israeli", "Syrian"],
+                                      "Iranian", "Israeli", "Syrian", "Uzbek"],
                 "main dish type": ["tofu", "legumes", "eggs", "meat", "vegetable", "salad", "stew", "pasta/noodles", "dumpling"]
             }
         }
@@ -214,16 +214,19 @@
                 {"type": "group",
                  "marks": [
                      {
-                         "type": "rect",
+
+                         "type": "symbol",
                          "from": {"data": "values"},
                          "encode": {
                              "enter": {
+                                 // this is off center, compared to the rects, so fix that and then figure out size.
+                                 // setting corner radius to max value would allow me to toggle between uare and circle using rect mark, but nothing else
+                                 "shape": {"signal": "if(datum.tag, if(datum.tag == 'regular', 'circle', 'diamond'), 'square')"},
+                                 "size": {"value": 100},
                                  "x": {"scale": "x", "field": "w0", "offset": {"signal": "month(datum.date) * offset"}},
-                                 "width": {"scale": "x", "band": 1, "offset": -1},
                                  "y": {"scale": "y", "field": "d0"},
-                                 "height": {"scale": "y", "band": 1, "offset": -1},
                                  "cornerRadius": {"value": 2},
-                                 "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Main dish': datum['main dish'], 'Main dish source': datum['main dish source detail'] + (datum['main dish source'] ? ' (' : '') + datum['main dish source'] + (datum['main dish source'] ? ')' : ''), 'Main dish cuisine': datum['main dish cuisine'], 'Side dish': datum['side dish 1'], 'Side dish source': datum['side dish 1 source detail'] + (datum['side dish 1 source'] ? ' (' : '') + datum['side dish 1 source'] + (datum['side dish 1 source'] ? ')' : ''), 'Side dish cuisine': datum['side dish 1 cuisine'], 'Non-vegan ingredients': datum['non-vegan ingredient']}"},
+                                 "tooltip": {"signal": "{'title': timeFormat(datum.date, '%a %b %d, %Y'), 'Main dish': datum['main dish'], 'Main dish source': datum['main dish source detail'] + (datum['main dish source'] ? ' (' : '') + datum['main dish source'] + (datum['main dish source'] ? ')' : ''), 'Main dish cuisine': datum['main dish cuisine'], 'Side dish': datum['side dish 1'], 'Side dish source': datum['side dish 1 source detail'] + (datum['side dish 1 source'] ? ' (' : '') + datum['side dish 1 source'] + (datum['side dish 1 source'] ? ')' : ''), 'Side dish cuisine': datum['side dish 1 cuisine'], 'Non-vegan ingredients': datum['non-vegan ingredient'], 'Tag': datum['tag']}"},
                                  "cursor": {"signal": "datum['main dish source link'] ? 'pointer' : 'default'"},
                                  "href": {"field": "main dish source link", "type": "nominal"},
                                  "stroke": {"value": "#ffffff"}
