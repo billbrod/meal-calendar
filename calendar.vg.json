@@ -42,11 +42,12 @@
                 "type": ["cooked", "frozen", "leftovers", "restaurant", "takeout"],
                 "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat"],
                 "main dish cuisine": ["Indian", "Chinese", "Korean", "Japanese", "Filipino", "Thai",
-                                      "Italian", "Irish", "Swiss", "", " ", " \t",
+                                      "Italian", "Irish", "Swiss", "Greek", " ", " \t",
                                       "American", "global pantry", "Cuban", "  ", "   ", "  \t",
                                       "Ethiopian", "Sudanese", "\t", "\t ", "\t  ", "   \t",
-                                      "Iranian", "Israeli", "Syrian", "Uzbek"],
-                "main dish type": ["tofu", "legumes", "eggs", "meat", "vegetable", "salad", "soup/stew", "pasta/noodles", "dumpling"]
+                                      "Iranian", "Israeli", "Syrian", "Uzbek", "Tunisian"],
+                "main dish type": ["tofu", "legumes", "eggs", "meat", "vegetable", "salad", "soup/stew",
+                                   "pasta/noodles", "dumpling", "cheese"]
             }
         }
     ],
