@@ -45,7 +45,7 @@
                                       "Italian", "Irish", "Swiss", "Greek", " ", " \t",
                                       "American", "global pantry", "Cuban", "  ", "   ", "  \t",
                                       "Ethiopian", "Sudanese", "\t", "\t ", "\t  ", "   \t",
-                                      "Iranian", "Israeli", "Syrian", "Uzbek", "Tunisian"],
+                                       "Afghan", "Uzbek", "Iranian", "Israeli", "Syrian", "Tunisian"],
                 "main dish type": ["tofu", "legumes", "eggs", "meat", "vegetable", "salad", "soup/stew",
                                    "pasta/noodles", "dumpling", "cheese"]
             }
