@@ -42,7 +42,7 @@
                 "type": ["cooked", "frozen", "leftovers", "restaurant", "takeout"],
                 "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat"],
                 "main dish cuisine": ["Indian", "Chinese", "Korean", "Japanese", "Filipino", "Thai",
-                                      "Italian", "Irish", "Swiss", "Greek", " ", " \t",
+                                      "Italian", "Irish", "Swiss", "Greek", "French", " \t",
                                       "American", "global pantry", "Cuban", "  ", "   ", "  \t",
                                       "Ethiopian", "Sudanese", "\t", "\t ", "\t  ", "   \t",
                                        "Afghan", "Uzbek", "Iranian", "Israeli", "Syrian", "Tunisian"],
