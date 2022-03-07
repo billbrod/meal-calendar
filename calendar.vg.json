@@ -18,7 +18,7 @@
             "value": {
                 "main dish source": "side dish 1 source",
                 "main dish type": "side dish 1 type",
-                "main dish cuisine": "side dish 1 cuisine"
+                "main dish cuisine continent": "side dish 1 cuisine continent"
             }
         },
         {
@@ -26,7 +26,7 @@
             "value": {
                 "vegetarian": "vegetarian",
                 "type": "type",
-                "main dish cuisine": "cuisines",
+                "main dish cuisine continent": "cuisines",
                 "protein": "protein",
                 "alcohol": "alcohol",
                 "main dish source": "tableau10",
@@ -41,11 +41,7 @@
                 "alcohol": ["none", "white wine", "red wine", "beer", "cocktail"],
                 "type": ["cooked", "frozen", "leftovers", "restaurant", "takeout"],
                 "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat", "cheese"],
-                "main dish cuisine": ["Indian", "Chinese", "Korean", "Japanese", "Filipino", "Thai",
-                                      "Italian", "Irish", "Swiss", "Greek", "French", "Spanish",
-                                      "American", "global pantry", "Cuban", "  ", "   ", "  \t",
-                                      "Ethiopian", "Sudanese", "\t", "\t ", "\t  ", "   \t",
-                                       "Afghan", "Uzbek", "Iranian", "Israeli", "Syrian", "Tunisian"],
+                "main dish cuisine continent": ["East / South / Southeast Asia", "Europe", "The Americas", "Sub-Saharan Africa", "Southwest Asia / North Africa"],
                 "main dish type": ["tofu", "legumes", "eggs", "meat", "vegetable", "salad", "soup/stew",
                                    "pasta/noodles", "dumpling", "cheese", "sandwich"]
             }
@@ -92,6 +88,14 @@
                 {
                     "type": "formula", "expr": "if(datum.vegan == 'yes', 'vegan', if(datum.vegetarian == 'yes', 'vegetarian', if(datum.pescatarian == 'yes', 'pescatarian', 'meat')))",
                     "as": "vegetarian"
+                },
+                {
+                    "type": "formula", "as": "main dish cuisine continent",
+                    "expr": "indexof(['Indian', 'Chinese', 'Korean', 'Japanese', 'Filipino', 'Thai'], datum['main dish cuisine']) !== -1 ? 'East / South / Southeast Asia' : indexof(['Italian', 'Irish', 'Swiss', 'Greek', 'French', 'Spanish'], datum['main dish cuisine']) !== -1 ? 'Europe' : indexof(['American', 'global pantry', 'Mexican', 'Cuban'], datum['main dish cuisine']) !== -1 ? 'The Americas' : indexof(['Ethiopian', 'Sudanese'], datum['main dish cuisine']) !== -1 ? 'Sub-Saharan Africa' : indexof(['Afghan', 'Uzbek', 'Iranian', 'Israeli', 'Syrian', 'Tunisian'], datum['main dish cuisine']) !== -1 ? 'Southwest Asia / North Africa' : 'unknown'"
+                },
+                {
+                    "type": "formula", "as": "side dish 1 cuisine continent",
+                    "expr": "indexof(['Indian', 'Chinese', 'Korean', 'Japanese', 'Filipino', 'Thai'], datum['side dish 1 cuisine']) !== -1 ? 'East / South / Southeast Asia' : indexof(['Italian', 'Irish', 'Swiss', 'Greek', 'French', 'Spanish'], datum['side dish 1 cuisine']) !== -1 ? 'Europe' : indexof(['American', 'global pantry', 'Mexican', 'Cuban'], datum['side dish 1 cuisine']) !== -1 ? 'The Americas' : indexof(['Ethiopian', 'Sudanese'], datum['side dish 1 cuisine']) !== -1 ? 'Sub-Saharan Africa' : indexof(['Afghan', 'Uzbek', 'Iranian', 'Israeli', 'Syrian', 'Tunisian'], datum['side dish 1 cuisine']) !== -1 ? 'Southwest Asia / North Africa' : 'unknown'"
                 }
             ]
         },
@@ -128,7 +132,7 @@
             "titlePadding": 20,
             "offset": 15,
             "orient": "top",
-            "columns": {"signal": "data == 'main dish cuisine' || data == 'main dish type' ? 6 : 0"},
+            "columns": {"signal": "data == 'main dish cuisine continent' || data == 'main dish type' || data == 'main dish source' ? 6 : 0"},
             "direction": "horizontal"
         }
     ],
@@ -251,7 +255,7 @@
                              },
                              "update": {
                                  "fill": {"scale": "color", "field": {"signal": "side_data[data]"}},
-                                 "strokeOpacity": {"signal": "side_data[data] && datum[side_data[data]] ? 1 : 0"}
+                                 "strokeOpacity": {"signal": "side_data[data] && datum[side_data[data]] && datum[side_data[data]] != 'unknown' ? 1 : 0"}
                              }
                          }
                      }
