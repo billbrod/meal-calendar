@@ -29,7 +29,7 @@
                 "main dish cuisine": "cuisines",
                 "protein": "protein",
                 "alcohol": "alcohol",
-                "main dish source": "set2",
+                "main dish source": "tableau10",
                 "main dish type": "dish_type"
             }
         },
@@ -38,16 +38,16 @@
             "description": "For some of the fields, we have a specific order we want the hues to be ordered in: this gives that order (allows us to make sure that, e.g., red wine is red). See data -> unique_vals for how this is used. That gets a new field, all_vals, which contains either the corresponding field from here or, if one's not defined (like 'main dish cuisine'), fills it in with corresponding field from datum. The transform after that flattens it so that the resulting 'flattened_values' contains all values (with duplicates) and can be passed as domain to the scale.",
             "value": {
                 "vegetarian": ["vegan", "vegetarian", "pescatarian", "meat"],
-                "alcohol": ["none", "white wine", "red wine", "beer"],
+                "alcohol": ["none", "white wine", "red wine", "beer", "cocktail"],
                 "type": ["cooked", "frozen", "leftovers", "restaurant", "takeout"],
-                "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat"],
+                "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat", "cheese"],
                 "main dish cuisine": ["Indian", "Chinese", "Korean", "Japanese", "Filipino", "Thai",
-                                      "Italian", "Irish", "Swiss", "Greek", "French", " \t",
+                                      "Italian", "Irish", "Swiss", "Greek", "French", "Spanish",
                                       "American", "global pantry", "Cuban", "  ", "   ", "  \t",
                                       "Ethiopian", "Sudanese", "\t", "\t ", "\t  ", "   \t",
                                        "Afghan", "Uzbek", "Iranian", "Israeli", "Syrian", "Tunisian"],
                 "main dish type": ["tofu", "legumes", "eggs", "meat", "vegetable", "salad", "soup/stew",
-                                   "pasta/noodles", "dumpling", "cheese"]
+                                   "pasta/noodles", "dumpling", "cheese", "sandwich"]
             }
         }
     ],
@@ -128,7 +128,7 @@
             "titlePadding": 20,
             "offset": 15,
             "orient": "top",
-            "columns": {"signal": "data == 'main dish cuisine' ? 6 : 0"},
+            "columns": {"signal": "data == 'main dish cuisine' || data == 'main dish type' ? 6 : 0"},
             "direction": "horizontal"
         }
     ],
