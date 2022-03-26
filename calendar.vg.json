@@ -39,11 +39,11 @@
             "value": {
                 "vegetarian": ["vegan", "vegetarian", "pescatarian", "meat"],
                 "alcohol": ["none", "white wine", "red wine", "beer", "cocktail", "sake"],
-                "type": ["cooked", "frozen", "leftovers", "restaurant", "takeout"],
-                "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat", "cheese"],
+                "type": ["cooked", "frozen", "leftovers", "restaurant", "takeout", "other people"],
+                "protein": ["none", "tofu", "legumes", "mushrooms", "eggs", "meat", "cheese", "fish"],
                 "main dish cuisine continent": ["East / South / Southeast Asia", "Europe", "The Americas", "Sub-Saharan Africa", "Southwest Asia / North Africa"],
                 "main dish type": ["tofu", "legumes", "eggs", "meat", "vegetable", "salad", "soup/stew",
-                                   "pasta/noodles", "dumpling", "cheese", "sandwich"]
+                                   "pasta/noodles", "dumpling", "cheese", "sandwich", "fish"]
             }
         }
     ],
