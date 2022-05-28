@@ -3,6 +3,17 @@ Vega project to visualize meals
 
 # Usage
 
+NOTE: This shows meals up to a month before the current date. To disable this
+filtering, find the following lines and delete them (as of this writing, they're
+from lines 57 to 60 in `calendar.vg.json`):
+
+``` json
+                {
+                    "type": "filter",
+                    "expr": "datum.date < now() - 1000*60*60*24*30"
+                },
+```
+
 ## Data
 
 An example csv has been included at `data/dinner.csv`, which you should replace
