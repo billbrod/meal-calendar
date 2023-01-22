@@ -1,6 +1,15 @@
 # meal-calendar
 Vega project to visualize meals
 
+TODO:
+- [ ] convert to d3js or maybe just do: https://stackoverflow.com/questions/66256236/is-there-a-way-to-modify-vega-charts-with-d3-js
+- [ ] add bar graph, summarizing the above stuff, plus where recipes came from.
+- [ ] add selection brush? which would change what's shown in the bar graph?
+- [ ] For meal calendar, convert to d3.js and figure out a way to mark when we're out of town (maybe a colored border?) And can mark something (favorite?) with alpha?
+- [ ] add something to show repeated dishes -- maybe highlight them when hovering, like iwth books?
+- [ ] add search and highlight matching meals?
+- [ ] Make D3 things look better on mobile, maybe https://stackoverflow.com/questions/51364048/mobile-friendly-d3-js-bubble-chart#51365326
+
 # Usage
 
 NOTE: This shows meals up to a month before the current date. To disable this
